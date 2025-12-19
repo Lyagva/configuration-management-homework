@@ -1,0 +1,22 @@
+<#
+ Game Configuration
+ Level settings and player stats
+#>
+var base_health := 0b1100100; " 100
+var level_multiplier := 0b10; " 2
+
+@{
+  player = @{
+    health = base_health;
+    mana = |base_health - 0b10100|; " 100 - 20 = 80
+    inventory = array(
+      0b1,
+      0b10,
+      0b11
+    ); " Item IDs
+  };
+  difficulty = @{
+    levelOneHp = |base_health + 0b1100100|; " 200
+    bossHp = |pow(base_health, 0b10)|; " 100^2 = 10000
+  };
+}

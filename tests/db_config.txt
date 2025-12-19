@@ -1,0 +1,13 @@
+" Database Sharding Config
+var shard_count := 0b100; " 4
+var base_port := 0b10011100010000; " 10000
+
+@{
+  shards = array(
+    @{ id = 0b0; port = base_port; },
+    @{ id = 0b1; port = |base_port + 0b1|; },
+    @{ id = 0b10; port = |base_port + 0b10|; },
+    @{ id = 0b11; port = |base_port + 0b11|; }
+  );
+  replication_factor = 0b11; " 3
+}
